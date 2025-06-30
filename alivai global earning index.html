@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alivai Global Earning - Work From Home Opportunities</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            padding-top: 64px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .gradient-bg {
+            background: linear-gradient(to right, #28a745, #218838);
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #28a745;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        nav ul li a {
+            transition: color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4 fixed top-0 w-full z-50">
+        <div class="container flex justify-between items-center">
+            <a href="/" class="text-3xl font-bold text-green-700">Alivai Global Earning</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="/" class="text-gray-600 hover:text-green-600 font-bold">Offers</a></li>
+                    <li><a href="#how-it-works" class="text-gray-600 hover:text-green-600 font-bold">How It Works</a></li>
+                    <li><a href="#withdrawals" class="text-gray-600 hover:text-green-600 font-bold">Withdrawals</a></li>
+                    <li><a href="#about" class="text-gray-600 hover:text-green-600 font-bold">About Us</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeieziBeQQqkMaimPmihfXgb6HlSkm6Ldx-83jdaEUyYKpe2A/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-300">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20 text-center rounded-b-xl shadow-lg">
+        <div class="container">
+            <h1 class="text-5xl font-extrabold mb-4 leading-tight">Unlock Your Earning Potential from Home</h1>
+            <p class="text-xl mb-8 opacity-90">Discover flexible work-from-home affiliate marketing opportunities with Alivai Global Earning.</p>
+            <a href="/" class="bg-white text-green-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 transition duration-300 shadow-lg">Explore Offers Now</a>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 bg-white rounded-lg shadow-md mx-4 md:mx-auto mt-8">
+        <div class="container">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">How Alivai Global Earning Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 card">
+                    <div class="text-green-500 text-5xl mb-4">💡</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-900">1. Discover Offers</h3>
+                    <p class="text-gray-600">Browse through a wide range of affiliate marketing offers, from app installs to surveys and sign-ups.</p>
+                </div>
+                <div class="p-6 card">
+                    <div class="text-green-500 text-5xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-900">2. Promote & Earn</h3>
+                    <p class="text-gray-600">Promote offers using your unique affiliate links. Earn commission for every successful conversion.</p>
+                </div>
+                <div class="p-6 card">
+                    <div class="text-green-500 text-5xl mb-4">💰</div>
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-900">3. Get Paid</h3>
+                    <p class="text-gray-600">Receive timely payouts for your hard work. Track your earnings and performance in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Offers Section -->
+    <section id="offers" class="py-16">
+        <div class="container">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Featured Earning Opportunities</h2>
+            <p class="text-center text-gray-600 mb-8">
+                These offers below are worldwide and real earning opportunities.
+            </p>
+            <div id="offers-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Offers will be dynamically loaded here -->
+                <div class="col-span-full flex justify-center items-center py-10" id="loading-indicator">
+                    <div class="loading-spinner"></div>
+                    <p class="ml-4 text-gray-600">Loading exciting offers...</p>
+                </div>
+            </div>
+            <div id="error-message" class="col-span-full text-center text-red-600 mt-8 hidden">
+                <p>Failed to load offers. Please try again later.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Withdrawal Methods Section -->
+    <section id="withdrawals" class="py-16 bg-white rounded-lg shadow-md mx-4 md:mx-auto mt-8">
+        <div class="container text-center">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900">Withdrawal Methods</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                Alivai Global Earning provides convenient and secure withdrawal options for your hard-earned income.
+                Currently, we support payouts directly to your PayPal account.
+            </p>
+            <div class="flex justify-center items-center">
+                <img src="https://placehold.co/150x50/003087/ffffff?text=PayPal" alt="PayPal Logo" class="h-12 mr-4 rounded-md">
+                <a href="https://www.paypal.com/in/home" target="_blank" rel="noopener noreferrer" class="bg-blue-700 text-white px-6 py-3 rounded-md text-lg hover:bg-blue-800 transition duration-300 shadow-lg">
+                    Visit PayPal Official Site
+                </a>
+            </div>
+            <p class="text-sm text-gray-500 mt-4">
+                Ensure your PayPal account details are correctly linked in your profile for seamless transactions.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white rounded-lg shadow-md mx-4 md:mx-auto mt-8">
+        <div class="container text-center">
+            <h2 class="text-4xl font-bold mb-6 text-gray-900">About Alivai Global Earning</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Alivai Global Earning is dedicated to connecting individuals with legitimate and flexible work-from-home affiliate marketing opportunities. Our platform aims to empower you to earn income on your own terms, providing access to a diverse range of campaigns and robust tracking tools. Join our community and start your journey towards financial independence today!
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12 rounded-t-xl">
+        <div class="container text-center">
+            <p>&copy; 2025 Alivai Global Earning. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-white">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const offersContainer = document.getElementById('offers-container');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const errorMessage = document.getElementById('error-message');
+
+            // Extensive mock offers data (55 offers)
+            const mockOffers = [
+                {
+                    id: "offer-1",
+                    title: "Complete Survey for Cash",
+                    description: "Sign up and complete a short survey to earn $5.",
+                    payout: "$5.00",
+                    category: "Survey",
+                    link: "https://example.com/offer/1"
+                },
+                {
+                    id: "offer-2",
+                    title: "Install Mobile App",
+                    description: "Download and install our partner app to earn $1.50.",
+                    payout: "$1.50",
+                    category: "App Install",
+                    link: "https://example.com/offer/2"
+                },
+                {
+                    id: "offer-3",
+                    title: "Sign Up for Free Trial",
+                    description: "Register for a free trial of our premium service.",
+                    payout: "$8.00",
+                    category: "Trial Offer",
+                    link: "https://example.com/offer/3"
+                },
+                {
+                    id: "offer-4",
+                    title: "Email Submission",
+                    description: "Submit your email address for special offers.",
+                    payout: "$0.75",
+                    category: "Email Submit",
+                    link: "https://example.com/offer/4"
+                },
+                {
+                    id: "offer-5",
+                    title: "Shopping Cashback",
+                    description: "Earn cashback on your online purchases.",
+                    payout: "5% cashback",
+                    category: "Shopping",
+                    link: "https://example.com/offer/5"
+                },
+                {
+                    id: "offer-6",
+                    title: "Game App Install",
+                    description: "Install and play our partner game to earn rewards.",
+                    payout: "$2.00",
+                    category: "Gaming",
+                    link: "https://example.com/offer/6"
+                },
+                {
+                    id: "offer-7",
+                    title: "Financial Service Signup",
+                    description: "Open an account with our financial partner.",
+                    payout: "$12.50",
+                    category: "Finance",
+                    link: "https://example.com/offer/7"
+                },
+                {
+                    id: "offer-8",
+                    title: "Streaming Service Trial",
+                    description: "Start a free trial of our streaming platform.",
+                    payout: "$6.00",
+                    category: "Entertainment",
+                    link: "https://example.com/offer/8"
+                },
+                {
+                    id: "offer-9",
+                    title: "Health App Download",
+                    description: "Download and use our health tracking app.",
+                    payout: "$3.25",
+                    category: "Health",
+                    link: "https://example.com/offer/9"
+                },
+                {
+                    id: "offer-10",
+                    title: "Insurance Quote Request",
+                    description: "Get a free insurance quote from our partners.",
+                    payout: "$4.50",
+                    category: "Insurance",
+                    link: "https://example.com/offer/10"
+                },
+                {
+                    id: "offer-11",
+                    title: "Credit Card Application",
+                    description: "Apply for a credit card with our banking partner.",
+                    payout: "$15.00",
+                    category: "Finance",
+                    link: "https://example.com/offer/11"
+                },
+                {
+                    id: "offer-12",
+                    title: "Mobile Game Challenge",
+                    description: "Complete in-game challenges for rewards.",
+                    payout: "$1.75",
+                    category: "Gaming",
+                    link: "https://example.com/offer/12"
+                },
+                {
+                    id: "offer-13",
+                    title: "Online Course Enrollment",
+                    description: "Enroll in our partner's online course.",
+                    payout: "$7.50",
+                    category: "Education",
+                    link: "https://example.com/offer/13"
+                },
+                {
+                    id: "offer-14",
+                    title: "Fitness App Subscription",
+                    description: "Subscribe to our fitness training app.",
+                    payout: "$9.00",
+                    category: "Health",
+                    link: "https://example.com/offer/14"
+                },
+                {
+                    id: "offer-15",
+                    title: "Travel Booking",
+                    description: "Book your next trip through our portal.",
+                    payout: "3% commission",
+                    category: "Travel",
+                    link: "https://example.com/offer/15"
+                },
+                {
+                    id: "offer-16",
+                    title: "Food Delivery App",
+                    description: "Order food through our delivery partner.",
+                    payout: "$2.50",
+                    category: "Food",
+                    link: "https://example.com/offer/16"
+                },
+                {
+                    id: "offer-17",
+                    title: "VPN Service Trial",
+                    description: "Try our premium VPN service for free.",
+                    payout: "$5.50",
+                    category: "Technology",
+                    link: "https://example.com/offer/17"
+                },
+                {
+                    id: "offer-18",
+                    title: "eBook Download",
+                    description: "Download and read our partner's eBook.",
+                    payout: "$1.25",
+                    category: "Education",
+                    link: "https://example.com/offer/18"
+                },
+                {
+                    id: "offer-19",
+                    title: "Job Board Registration",
+                    description: "Create a profile on our job board.",
+                    payout: "$3.00",
+                    category: "Employment",
+                    link: "https://example.com/offer/19"
+                },
+                {
+                    id: "offer-20",
+                    title: "Dating App Signup",
+                    description: "Join our dating platform community.",
+                    payout: "$4.25",
+                    category: "Social",
+                    link: "https://example.com/offer/20"
+                },
+                {
+                    id: "offer-21",
+                    title: "Cloud Storage Trial",
+                    description: "Try our secure cloud storage solution.",
+                    payout: "$6.50",
+                    category: "Technology",
+                    link: "https://example.com/offer/21"
+                },
+                {
+                    id: "offer-22",
+                    title: "Language Learning App",
+                    description: "Start learning a new language today.",
+                    payout: "$3.75",
+                    category: "Education",
+                    link: "https://example.com/offer/22"
+                },
+                {
+                    id: "offer-23",
+                    title: "Home Services Quote",
+                    description: "Get quotes for home improvement services.",
+                    payout: "$2.25",
+                    category: "Home Services",
+                    link: "https://example.com/offer/23"
+                },
+                {
+                    id: "offer-24",
+                    title: "Car Insurance Comparison",
+                    description: "Compare car insurance rates.",
+                    payout: "$5.25",
+                    category: "Insurance",
+                    link: "https://example.com/offer/24"
+                },
+                {
+                    id: "offer-25",
+                    title: "Investment Platform Signup",
+                    description: "Start investing with our partner platform.",
+                    payout: "$10.00",
+                    category: "Finance",
+                    link: "https://example.com/offer/25"
+                },
+                {
+                    id: "offer-26",
+                    title: "Music Streaming Trial",
+                    description: "Try our premium music streaming service.",
+                    payout: "$4.00",
+                    category: "Entertainment",
+                    link: "https://example.com/offer/26"
+                },
+                {
+                    id: "offer-27",
+                    title: "Fitness Challenge",
+                    description: "Complete our 30-day fitness challenge.",
+                    payout: "$7.00",
+                    category: "Health",
+                    link: "https://example.com/offer/27"
+                },
+                {
+                    id: "offer-28",
+                    title: "Online Shopping Portal",
+                    description: "Shop through our affiliate portal.",
+                    payout: "4% cashback",
+                    category: "Shopping",
+                    link: "https://example.com/offer/28"
+                },
+                {
+                    id: "offer-29",
+                    title: "Mobile Plan Comparison",
+                    description: "Compare and switch mobile plans.",
+                    payout: "$3.50",
+                    category: "Telecom",
+                    link: "https://example.com/offer/29"
+                },
+                {
+                    id: "offer-30",
+                    title: "Credit Score Check",
+                    description: "Check your credit score for free.",
+                    payout: "$5.75",
+                    category: "Finance",
+                    link: "https://example.com/offer/30"
+                },
+                {
+                    id: "offer-31",
+                    title: "Online Tutoring Session",
+                    description: "Book your first tutoring session.",
+                    payout: "$8.50",
+                    category: "Education",
+                    link: "https://example.com/offer/31"
+                },
+                {
+                    id: "offer-32",
+                    title: "Pet Supplies Order",
+                    description: "Order supplies for your pet.",
+                    payout: "$3.25",
+                    category: "Pets",
+                    link: "https://example.com/offer/32"
+                },
+                {
+                    id: "offer-33",
+                    title: "Home Security Trial",
+                    description: "Try our home security system.",
+                    payout: "$9.50",
+                    category: "Home Services",
+                    link: "https://example.com/offer/33"
+                },
+                {
+                    id: "offer-34",
+                    title: "Car Rental Booking",
+                    description: "Rent a car for your next trip.",
+                    payout: "$6.75",
+                    category: "Travel",
+                    link: "https://example.com/offer/34"
+                },
+                {
+                    id: "offer-35",
+                    title: "Grocery Delivery",
+                    description: "Order groceries online for delivery.",
+                    payout: "$2.75",
+                    category: "Food",
+                    link: "https://example.com/offer/35"
+                },
+                {
+                    id: "offer-36",
+                    title: "Website Builder Trial",
+                    description: "Try our easy website builder tool.",
+                    payout: "$7.25",
+                    category: "Technology",
+                    link: "https://example.com/offer/36"
+                },
+                {
+                    id: "offer-37",
+                    title: "Online Banking Signup",
+                    description: "Open an online bank account.",
+                    payout: "$12.00",
+                    category: "Finance",
+                    link: "https://example.com/offer/37"
+                },
+                {
+                    id: "offer-38",
+                    title: "Meditation App Download",
+                    description: "Try our guided meditation app.",
+                    payout: "$3.00",
+                    category: "Health",
+                    link: "https://example.com/offer/38"
+                },
+                {
+                    id: "offer-39",
+                    title: "Real Estate Listings",
+                    description: "Browse homes in your area.",
+                    payout: "$4.50",
+                    category: "Real Estate",
+                    link: "https://example.com/offer/39"
+                },
+                {
+                    id: "offer-40",
+                    title: "Freelance Platform Signup",
+                    description: "Join our freelance marketplace.",
+                    payout: "$5.00",
+                    category: "Employment",
+                    link: "https://example.com/offer/40"
+                },
+                {
+                    id: "offer-41",
+                    title: "Smart Home Device",
+                    description: "Purchase a smart home device.",
+                    payout: "$8.75",
+                    category: "Technology",
+                    link: "https://example.com/offer/41"
+                },
+                {
+                    id: "offer-42",
+                    title: "Online Auction Bid",
+                    description: "Place a bid on our auction site.",
+                    payout: "$2.00",
+                    category: "Shopping",
+                    link: "https://example.com/offer/42"
+                },
+                {
+                    id: "offer-43",
+                    title: "Crypto Exchange Signup",
+                    description: "Join our cryptocurrency exchange.",
+                    payout: "$15.00",
+                    category: "Finance",
+                    link: "https://example.com/offer/43"
+                },
+                {
+                    id: "offer-44",
+                    title: "Online Fitness Class",
+                    description: "Register for a live fitness class.",
+                    payout: "$4.75",
+                    category: "Health",
+                    link: "https://example.com/offer/44"
+                },
+                {
+                    id: "offer-45",
+                    title: "Car Buying Service",
+                    description: "Use our car buying concierge.",
+                    payout: "$10.50",
+                    category: "Automotive",
+                    link: "https://example.com/offer/45"
+                },
+                {
+                    id: "offer-46",
+                    title: "Home Cleaning Service",
+                    description: "Book a professional cleaning.",
+                    payout: "$5.50",
+                    category: "Home Services",
+                    link: "https://example.com/offer/46"
+                },
+                {
+                    id: "offer-47",
+                    title: "Online Will Creation",
+                    description: "Create your legal will online.",
+                    payout: "$7.50",
+                    category: "Legal",
+                    link: "https://example.com/offer/47"
+                },
+                {
+                    id: "offer-48",
+                    title: "Subscription Box",
+                    description: "Sign up for a monthly subscription box.",
+                    payout: "$6.25",
+                    category: "Shopping",
+                    link: "https://example.com/offer/48"
+                },
+                {
+                    id: "offer-49",
+                    title: "Online Therapy Session",
+                    description: "Book your first therapy session.",
+                    payout: "$9.75",
+                    category: "Health",
+                    link: "https://example.com/offer/49"
+                },
+                {
+                    id: "offer-50",
+                    title: "Business Software Trial",
+                    description: "Try our business management software.",
+                    payout: "$11.00",
+                    category: "Business",
+                    link: "https://example.com/offer/50"
+                },
+                {
+                    id: "offer-51",
+                    title: "Online Coding Course",
+                    description: "Learn to code with our interactive course.",
+                    payout: "$8.25",
+                    category: "Education",
+                    link: "https://example.com/offer/51"
+                },
+                {
+                    id: "offer-52",
+                    title: "Solar Panel Quote",
+                    description: "Get a quote for home solar panels.",
+                    payout: "$7.75",
+                    category: "Home Services",
+                    link: "https://example.com/offer/52"
+                },
+                {
+                    id: "offer-53",
+                    title: "Stock Trading App",
+                    description: "Download our stock trading platform.",
+                    payout: "$10.25",
+                    category: "Finance",
+                    link: "https://example.com/offer/53"
+                },
+                {
+                    id: "offer-54",
+                    title: "Online Resume Builder",
+                    description: "Create a professional resume.",
+                    payout: "$4.25",
+                    category: "Employment",
+                    link: "https://example.com/offer/54"
+                },
+                {
+                    id: "offer-55",
+                    title: "Virtual Assistant Service",
+                    description: "Try our AI-powered virtual assistant.",
+                    payout: "$6.00",
+                    category: "Technology",
+                    link: "https://example.com/offer/55"
+                }
+            ];
+
+            // Function to display offers
+            function displayOffers(offers) {
+                if (offers.length === 0) {
+                    offersContainer.innerHTML = '<p class="col-span-full text-center text-gray-600">No offers available at the moment. Please check back later!</p>';
+                    return;
+                }
+
+                offersContainer.innerHTML = ''; // Clear loading indicator
+
+                offers.forEach(offer => {
+                    const offerCard = `
+                        <div class="card p-6 flex flex-col justify-between">
+                            <div>
+                                <span class="text-sm font-semibold text-green-600 bg-green-100 px-3 py-1 rounded-full mb-3 inline-block">${offer.category}</span>
+                                <h3 class="text-xl font-bold mb-2 text-gray-900">${offer.title}</h3>
+                                <p class="text-gray-600 mb-4">${offer.description}</p>
+                            </div>
+                            <div class="flex justify-between items-center mt-4">
+                                <span class="text-2xl font-bold text-green-700">${offer.payout}</span>
+                                <a href="https://www.profitableratecpm.com/s2k0zd8hjv?key=c16da0c0041cc17088b060957311acff" target="_blank" rel="noopener noreferrer" class="bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-blue-600 transition duration-300">Start Earning</a>
+                            </div>
+                        </div>
+                    `;
+                    offersContainer.innerHTML += offerCard;
+                });
+            }
+
+            // Simulate API loading delay
+            setTimeout(() => {
+                displayOffers(mockOffers);
+                loadingIndicator.classList.add('hidden');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
